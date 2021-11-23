@@ -64,6 +64,12 @@ namespace Chessington.GameEngine
             CurrentPlayer = movingPiece.Player == Player.White ? Player.Black : Player.White;
             OnCurrentPlayerChanged(CurrentPlayer);
         }
+
+        public bool IsInRange(Square square)
+        {
+           return !(square.Col < 0 || square.Col > GameSettings.BoardSize - 1 || square.Row < 0 ||
+                square.Row > GameSettings.BoardSize - 1);
+        }
         
         public delegate void PieceCapturedEventHandler(Piece piece);
         
